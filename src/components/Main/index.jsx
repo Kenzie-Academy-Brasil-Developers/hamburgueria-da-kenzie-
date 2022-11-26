@@ -1,12 +1,17 @@
 import React from "react";
 import { ThemeParagraph, ThemeTitle } from "../../styles/typography";
-import { StyledMain } from "./style";
+import { StyledList, StyledMain } from "./style";
 import { ThemeButton } from "../../styles/buttons";
+import { ListCards } from "../ListCards";
 
 export const Main = () => {
   return (
     <StyledMain>
-      {/* <List/> */}
+      <section>
+        <StyledList>
+          <ListCards />
+        </StyledList>
+      </section>
       <aside>
         <section>
           <ThemeTitle titleSize="title4" tag="h4">
@@ -16,7 +21,7 @@ export const Main = () => {
         <section>
           <div>{/* <List/> */}</div>
           <div>
-            <ThemeParagraph fontSize="14"  fontWeight="bold">
+            <ThemeParagraph fontSize="14" fontWeight="bold">
               Total <span>R$ 40,00</span>
             </ThemeParagraph>
             <ThemeButton buttonSize="lg" buttonStyled="grey">

@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  width: 100%;
+  width: 100vw;
   height: 139px;
   display: flex;
   align-items: center;
   background-color: var(--color-grey-10);
 
   section {
-    width: 90%;
-    max-width: 1200px;
+    width: 95%;
     height: 60%;
     display: flex;
     flex-direction: column;
@@ -20,9 +19,15 @@ export const StyledHeader = styled.header`
 
   @media (min-width: 700px) {
     height: 80px;
-
+    
     section {
       flex-direction: row;
+    }
+  }
+
+  @media (min-width: 1250px) {
+    section {
+      width: 90%;
     }
   }
 
