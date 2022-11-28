@@ -10,6 +10,13 @@ import { api } from "./services/api";
 import { ProductList } from "./components/ProductsList";
 import { Cart } from "./components/Cart";
 
+// Falta:
+// resolver problema com o filter;
+// resolver função addCart;
+// renderizar itens escolhidos;
+// fazer função total
+// terminar detalhes do estilo
+
 export const App = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(products);
@@ -61,7 +68,7 @@ export const App = () => {
           </section>
           <section>
             <div>
-              <Cart currentSale={currentSale} />
+              {/* <Cart currentSale={currentSale} /> */}
             </div>
             <div>
               <ThemeParagraph fontSize="14" fontWeight="bold">
