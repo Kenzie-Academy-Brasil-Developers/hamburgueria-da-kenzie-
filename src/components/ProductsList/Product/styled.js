@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Cards = styled.li`
+export const ProductCards = styled.li`
   min-width: 300px;
   height: 361px;
   border: 3px solid var(--color-grey-20);
