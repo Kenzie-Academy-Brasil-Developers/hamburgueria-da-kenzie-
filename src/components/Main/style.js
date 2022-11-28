@@ -31,6 +31,11 @@ export const StyledMain = styled.main`
       max-width: 382px;
       margin: 0;
     }
+
+    section{
+      width: 95%;
+      margin: 10px auto;
+    }
   }
 `;
 
