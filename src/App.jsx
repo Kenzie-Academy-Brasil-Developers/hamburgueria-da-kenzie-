@@ -37,20 +37,30 @@ export const App = () => {
   }, []);
 
   const filterCards = (inputValue) => {
-    if (inputValue !== "") {
-      const includesItem = products.filter((item) =>
-        item.name.toLowerCase().includes(inputValue)
-      );
-      setFilteredProducts(includesItem);
-    }
+    const includesItem = products.filter(
+      (item) =>
+        item.name.toLowerCase().includes(inputValue) ||
+        item.category.toLowerCase().includes(inputValue)
+    );
+    setFilteredProducts(includesItem);
   };
 
   const addCart = (item) => {
     const newItem = {
-      ...item
+      ...item,
     };
-    setCurrentSale([...currentSale, newItem])
+    setCurrentSale([...currentSale, newItem]);
   };
+
+  const deleteCart = (id) => {
+    const newList = currentSale.filter((item) => item.id !== id);
+    setCurrentSale(newList);
+  };
+
+  const Total = currentSale.reduce((acc, currentValue) => {
+    return acc + currentValue.price;
+  }, 0);
+  console.log(Total);
 
   return (
     <div className="App">
@@ -58,7 +68,10 @@ export const App = () => {
       <Header functionFilterCards={filterCards} />
       <StyledMain>
         <section>
-          <ProductList products={products} addCart={addCart} />
+          <ProductList
+            products={filteredProducts.length ? filteredProducts : products}
+            addCart={addCart}
+          />
         </section>
         <aside>
           <section>
@@ -68,13 +81,18 @@ export const App = () => {
           </section>
           <section>
             <div>
-              {/* <Cart currentSale={currentSale} /> */}
+              <Cart currentSale={currentSale} deleteCart={deleteCart} />
             </div>
             <div>
               <ThemeParagraph fontSize="14" fontWeight="bold">
-                Total <span>R$ 40,00</span>
+                Total <span>R$ {Total}</span>
               </ThemeParagraph>
-              <ThemeButton buttonSize="lg" buttonStyled="grey">
+              <ThemeButton
+                type="button"
+                buttonSize="lg"
+                buttonStyled="grey"
+                onClick={() => setCurrentSale([])}
+              >
                 Remover todos
               </ThemeButton>
             </div>

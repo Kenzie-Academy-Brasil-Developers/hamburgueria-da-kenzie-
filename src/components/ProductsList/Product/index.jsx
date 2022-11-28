@@ -4,7 +4,7 @@ import { ProductCards } from "./styled";
 export const Product = ({ item, addCart }) => {
   const { id, img, name, category, price } = item;
   return (
-    <ProductCards>
+    <ProductCards key={id}>
       <div className="img-product">
         <img src={img} alt="" />
       </div>
@@ -14,12 +14,9 @@ export const Product = ({ item, addCart }) => {
         <p>{price}</p>
         <ThemeButton
           id={id}
-          type="submit"
+          type="button"
           buttonStyled="green"
-          onClick={(e) => {
-            e.preventDefault();
-            addCart(item);
-          }}
+          onClick={() => addCart(item)}
         >
           Adicionar
         </ThemeButton>
