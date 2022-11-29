@@ -11,10 +11,7 @@ import { ProductList } from "./components/ProductsList";
 import { Cart } from "./components/Cart";
 
 // Falta:
-// resolver problema com o filter;
-// resolver função addCart;
-// renderizar itens escolhidos;
-// fazer função total
+// fazer função total usando useState
 // terminar detalhes do estilo
 
 export const App = () => {
@@ -85,7 +82,7 @@ export const App = () => {
             </div>
             <div>
               <ThemeParagraph fontSize="14" fontWeight="bold">
-                Total <span>R$ {Total}</span>
+                Total <span>R$ {Total.toFixed(2)}</span>
               </ThemeParagraph>
               <ThemeButton
                 type="button"
